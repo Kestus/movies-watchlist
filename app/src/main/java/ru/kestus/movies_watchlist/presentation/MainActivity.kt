@@ -1,4 +1,4 @@
-package ru.kestus.movies_watchlist
+package ru.kestus.movies_watchlist.presentation
 
 import android.os.Build
 import android.os.Bundle
@@ -12,7 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import ru.kestus.movies_watchlist.ui.theme.MoviesWatchlistTheme
+import ru.kestus.movies_watchlist.presentation.ui.theme.MoviesWatchlistTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

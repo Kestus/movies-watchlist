@@ -1,4 +1,4 @@
-package ru.kestus.movies_watchlist.ui.theme
+package ru.kestus.movies_watchlist.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
