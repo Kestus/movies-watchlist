@@ -57,5 +57,16 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Retrofit
+    implementation(libs.retrofit)
+    // GSON
+    implementation(libs.gson)
+    implementation(libs.converter.gson)
+    // OkHttp3 Logging Interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    // Coil
+    implementation("io.coil-kt.coil3:coil-compose:3.1.0")
+
 
 }

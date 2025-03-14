@@ -3,7 +3,7 @@ package ru.kestus.movies_watchlist.presentation.screens
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import ru.kestus.movies_watchlist.domain.items.PlainMovieItem
+import ru.kestus.movies_watchlist.domain.models.PlainMovieItem
 
 @Composable
 fun MoviesListScreen(movies: List<PlainMovieItem>) {

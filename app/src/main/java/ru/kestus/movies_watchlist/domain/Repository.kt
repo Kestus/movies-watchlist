@@ -1,9 +1,10 @@
 package ru.kestus.movies_watchlist.domain
 
-import ru.kestus.movies_watchlist.domain.items.PlainMovieItem
+import kotlinx.coroutines.flow.Flow
+import ru.kestus.movies_watchlist.domain.models.PlainMovieItem
 
 interface Repository {
 
-    suspend fun getPopularMovies(): List<PlainMovieItem>
+    fun loadPopularMovies(): Flow<List<PlainMovieItem>>
 
 }

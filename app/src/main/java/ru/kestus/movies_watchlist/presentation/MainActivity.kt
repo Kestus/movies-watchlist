@@ -10,11 +10,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.FabPosition
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import ru.kestus.movies_watchlist.R
 import ru.kestus.movies_watchlist.presentation.screens.MoviesListScreen
 import ru.kestus.movies_watchlist.presentation.ui.theme.MoviesWatchlistTheme
 import ru.kestus.movies_watchlist.presentation.viewModels.MainViewModel
@@ -22,6 +27,7 @@ import ru.kestus.movies_watchlist.presentation.viewModels.MainViewModel
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,11 +38,28 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             MoviesWatchlistTheme {
-                Scaffold { pv ->
+
+
+                Scaffold(
+                    floatingActionButton = {
+                        FloatingActionButton(
+                            onClick = {
+                                viewModel.testInterceptor()
+                            }
+                        ) {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_refresh),
+                                contentDescription = null
+                            )
+                        }
+                    },
+                    floatingActionButtonPosition = FabPosition.End
+                ) { pv ->
+                    val movies by viewModel.getMoviesFlow().collectAsState(emptyList())
                     Box(
                         modifier = Modifier.padding(pv)
                     ) {
-                        val movies by viewModel.moviesFlow.collectAsState()
+
                         if (movies.isEmpty()) {
                             Box(
                                 modifier = Modifier.fillMaxSize(),
