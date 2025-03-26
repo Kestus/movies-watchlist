@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import ru.kestus.movies_watchlist.domain.models.PlainMovieItem
 
 @Composable
-fun MoviesListScreen(movies: List<PlainMovieItem>) {
+fun MovieListScreen(movies: List<PlainMovieItem>) {
     Column {
         for (i in 0 until 10) {
             val movie = movies.getOrNull(i) ?: break

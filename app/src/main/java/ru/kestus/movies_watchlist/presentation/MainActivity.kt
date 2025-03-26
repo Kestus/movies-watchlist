@@ -2,6 +2,7 @@ package ru.kestus.movies_watchlist.presentation
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -20,7 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import ru.kestus.movies_watchlist.R
-import ru.kestus.movies_watchlist.presentation.screens.MoviesListScreen
+import ru.kestus.movies_watchlist.presentation.screens.MovieListScreen
 import ru.kestus.movies_watchlist.presentation.ui.theme.MoviesWatchlistTheme
 import ru.kestus.movies_watchlist.presentation.viewModels.MainViewModel
 
@@ -44,7 +45,7 @@ class MainActivity : ComponentActivity() {
                     floatingActionButton = {
                         FloatingActionButton(
                             onClick = {
-                                viewModel.testInterceptor()
+                                Log.d("TAG", "onCreate: click")
                             }
                         ) {
                             Icon(
@@ -55,11 +56,10 @@ class MainActivity : ComponentActivity() {
                     },
                     floatingActionButtonPosition = FabPosition.End
                 ) { pv ->
-                    val movies by viewModel.getMoviesFlow().collectAsState(emptyList())
+                    val movies by viewModel.popularMoviesFlow.collectAsState(emptyList())
                     Box(
                         modifier = Modifier.padding(pv)
                     ) {
-
                         if (movies.isEmpty()) {
                             Box(
                                 modifier = Modifier.fillMaxSize(),
@@ -68,7 +68,7 @@ class MainActivity : ComponentActivity() {
                                 CircularProgressIndicator()
                             }
                         } else {
-                            MoviesListScreen(movies)
+                            MovieListScreen(movies)
                         }
                     }
                 }

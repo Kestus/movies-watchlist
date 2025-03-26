@@ -5,6 +5,6 @@ import ru.kestus.movies_watchlist.domain.models.PlainMovieItem
 
 interface Repository {
 
-    fun loadPopularMovies(): Flow<List<PlainMovieItem>>
+    fun getPopularMoviesFlow(): Flow<List<PlainMovieItem>>
 
 }

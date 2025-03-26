@@ -1,5 +1,3 @@
-import org.gradle.internal.impldep.org.junit.Ignore
-
 pluginManagement {
     repositories {
         google {
@@ -23,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "movies-watchlist"
 include(":app")
+include(":network")
+include(":network:kinopoisk")
