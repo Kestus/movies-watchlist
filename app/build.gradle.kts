@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    alias(libs.plugins.kotlin.ksp)
 }
 
 android {
@@ -41,6 +43,7 @@ android {
 
 dependencies {
 
+    implementation(project(":core"))
     implementation(project(":network:kinopoisk"))
 
     implementation(libs.androidx.core.ktx)
@@ -59,7 +62,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // dagger2
+    implementation(libs.dagger)
+    ksp(libs.dagger.compiler)
+
     // Coil
-    implementation("io.coil-kt.coil3:coil-compose:3.1.0")
+    implementation(libs.coil.compose)
 
 }

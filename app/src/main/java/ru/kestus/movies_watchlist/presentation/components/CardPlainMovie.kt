@@ -70,11 +70,12 @@ private fun Prev() {
     CardPlainMovie(
         PlainMovieItem(
             id = 0,
+            idKinopoisk = 0,
             name = "Name",
             description = "«Одноразовый сотрудник» Микки участвует в колонизации ледяного мира. После смерти Микки его сознание каждый раз загружается в новое тело.",
             year = 1999,
             genres = listOf("genre1", "genre2"),
-            posterUrl = null
+            posterUrl = ""
         )
     )
 }

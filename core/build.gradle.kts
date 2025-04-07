@@ -1,15 +1,12 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
 
-    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.ksp)
 }
 
 android {
-    namespace = "ru.kestus.kinopoisk"
+    namespace = "ru.kestus.core"
     compileSdk = 35
 
     defaultConfig {
@@ -17,13 +14,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-
-
-        buildConfigField(
-            "String",
-            "API_KEY",
-            gradleLocalProperties(rootDir, providers).getProperty("api_key_kinopoisk")
-        )
     }
 
     buildTypes {
@@ -42,14 +32,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures {
-        buildConfig = true
-    }
 }
 
 dependencies {
-
-    implementation(project(":core"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -58,21 +43,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // ktor
-    implementation(libs.ktor.client.core)
-    implementation(libs.ktor.client.cio)
-    implementation(libs.ktor.client.logging)
-
-    // ktor serialization json
-    implementation(libs.ktor.client.content.negotiation)
-    implementation(libs.ktor.serialization.kotlinx.json)
-
-    // logback for ktor
-    implementation(libs.slf4j.api)
-    implementation(libs.logback.android)
-
     // dagger2
     implementation(libs.dagger)
     ksp(libs.dagger.compiler)
-
 }

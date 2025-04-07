@@ -3,7 +3,7 @@ package ru.kestus.kinopoisk.dto
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class DetailedMovieDto(
+internal data class KinopoiskDetailedMovieDto(
     val kinopoiskId: Int,
     val imdbId: String?,
     val nameRu: String?,
@@ -23,8 +23,8 @@ data class DetailedMovieDto(
     val description: String?,
     val shortDescription: String?,
     val type: String,
-    val countries: List<CountryDto>,
-    val genres: List<GenreDto>,
+    val countries: List<KinopoiskCountryDto>,
+    val genres: List<KinopoiskGenreDto>,
     val serial: Boolean?,
     val shortFilm: Boolean?
 )

@@ -23,3 +23,4 @@ rootProject.name = "movies-watchlist"
 include(":app")
 include(":network")
 include(":network:kinopoisk")
+include(":core")

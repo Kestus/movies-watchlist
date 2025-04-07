@@ -4,6 +4,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class GenreDto(
+internal data class KinopoiskGenreDto(
     @SerialName("genre") val value: String
 )
